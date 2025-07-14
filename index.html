@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Familia Tattoo & Piercing - Arte que Marca a Pele</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111111;
+            color: #e5e7eb;
+        }
+        .font-display {
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0.8) 50%, rgba(17, 17, 17, 1) 100%), url('https://m.10masters.com/images/repasar-tatuaje-10masters.original.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .gallery-item {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+        .artist-card {
+            background-color: #1f2937;
+            border: 1px solid #374151;
+            transition: all 0.3s ease;
+        }
+        .artist-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(245, 158, 11, 0.1);
+            border-color: #f59e0b;
+        }
+        .btn-primary {
+            background-color: #f59e0b;
+            color: #111111;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #fbbf24;
+            transform: scale(1.05);
+        }
+        .btn-secondary {
+            border: 1px solid #f59e0b;
+            color: #f59e0b;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #f59e0b;
+            color: #111111;
+        }
+        .form-input {
+            background-color: #1f2937;
+            border: 1px solid #4b5563;
+            color: #e5e7eb;
+            transition: border-color 0.3s ease;
+        }
+        .form-input:focus {
+            outline: none;
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.5);
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #header.scrolled {
+            background-color: rgba(17, 17, 17, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-3xl font-display tracking-wider text-amber-500">La Familia</a>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-300 hover:text-amber-500 transition-colors duration-300">Início</a>
+                    <a href="#artistas" class="text-gray-300 hover:text-amber-500 transition-colors duration-300">Artistas</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-amber-500 transition-colors duration-300">Portfólio</a>
+                    <a href="#contato" class="text-gray-300 hover:text-amber-500 transition-colors duration-300">Contato</a>
+                </nav>
+                <a href="#agendamento" class="hidden md:inline-block btn-primary font-bold py-2 px-6 rounded-lg text-lg">
+                    Agendar
+                </a>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/90 backdrop-blur-sm">
+            <a href="#home" class="block text-center py-3 px-4 text-gray-300 hover:bg-amber-500 hover:text-gray-900">Início</a>
+            <a href="#artistas" class="block text-center py-3 px-4 text-gray-300 hover:bg-amber-500 hover:text-gray-900">Artistas</a>
+            <a href="#portfolio" class="block text-center py-3 px-4 text-gray-300 hover:bg-amber-500 hover:text-gray-900">Portfólio</a>
+            <a href="#contato" class="block text-center py-3 px-4 text-gray-300 hover:bg-amber-500 hover:text-gray-900">Contato</a>
+            <div class="p-4">
+                <a href="#agendamento" class="block w-full text-center btn-primary font-bold py-3 px-6 rounded-lg text-lg">
+                    Agendar
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-center">
+            <div class="container mx-auto px-6 scroll-reveal">
+                <h1 class="text-6xl md:text-8xl lg:text-9xl font-display text-white tracking-widest leading-none">
+                    La Familia
+                </h1>
+                <p class="text-xl md:text-2xl text-amber-400 mt-4 max-w-2xl mx-auto">
+                    Arte que Marca a Pele. Experiências Únicas, Tatuagens Eternas.
+                </p>
+                <div class="mt-12">
+                    <a href="#agendamento" class="btn-primary font-bold py-4 px-10 rounded-lg text-xl uppercase tracking-wider">
+                        Faça seu Orçamento
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="scroll-reveal">
+                        <h2 class="text-4xl md:text-5xl font-display text-amber-500 tracking-wider">Nosso Estúdio</h2>
+                        <p class="mt-6 text-lg text-gray-300 leading-relaxed">
+                            Bem-vindo ao La Familia, um espaço onde a arte encontra a pele. Nossa missão é transformar suas ideias em tatuagens autênticas e de alta qualidade, criadas por artistas apaixonados e experientes.
+                        </p>
+                        <p class="mt-4 text-lg text-gray-300 leading-relaxed">
+                            Priorizamos a biossegurança, utilizando materiais 100% descartáveis e os mais rigorosos padrões de higiene. Aqui, cada cliente recebe um atendimento personalizado para garantir que sua experiência seja tão incrível quanto a arte que levará para sempre.
+                        </p>
+                        <div class="mt-8 flex space-x-4">
+                            <div class="flex items-center space-x-2 text-gray-300">
+                                <i data-lucide="shield-check" class="w-6 h-6 text-amber-500"></i>
+                                <span>Biossegurança Máxima</span>
+                            </div>
+                            <div class="flex items-center space-x-2 text-gray-300">
+                                <i data-lucide="gem" class="w-6 h-6 text-amber-500"></i>
+                                <span>Materiais Premium</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="scroll-reveal">
+                        <img src="https://placehold.co/600x400/1f2937/e5e7eb?text=Interior+do+Estúdio" alt="Interior do estúdio de tatuagem" class="rounded-lg shadow-2xl w-full h-auto object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artists Section -->
+        <section id="artistas" class="py-20 md:py-32 bg-gray-900/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 scroll-reveal">
+                    <h2 class="text-4xl md:text-5xl font-display text-amber-500 tracking-wider">Nossos Artistas</h2>
+                    <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">Conheça o time de talentos que dará vida à sua próxima tatuagem.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Artist Card 1 -->
+                    <div class="artist-card rounded-lg overflow-hidden text-center p-8 scroll-reveal">
+                        <img src="https://placehold.co/300x300/111111/FFFFFF?text=Artista+1" alt="Foto do Artista 1" class="w-40 h-40 rounded-full mx-auto border-4 border-amber-500 object-cover">
+                        <h3 class="text-2xl font-bold mt-6 text-white">Edu Grilo 'Sombra'</h3>
+                        <p class="text-amber-400 font-medium mt-1">Especialista em Realismo & Blackwork</p>
+                        <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+                            Com mais de 10 anos de experiência, Alex transforma fotos e ideias em obras de arte hiper-realistas na pele.
+                        </p>
+                        <div class="mt-6 flex justify-center space-x-4">
+                            <a href="https://instagram.com/duzaolafamiliatattoo" target="_blank" class="text-gray-400 hover:text-amber-500"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                            <a href="#" target="_blank" class="text-gray-400 hover:text-amber-500"><i data-lucide="globe" class="w-6 h-6"></i></a>
+                        </div>
+                    </div>
+                     <!-- Artist Card 2 -->
+                    <div class="artist-card rounded-lg overflow-hidden text-center p-8 scroll-reveal" style="transition-delay: 150ms;">
+                        <img src="https://placehold.co/300x300/111111/FFFFFF?text=Artista+2" alt="Foto da Artista 2" class="w-40 h-40 rounded-full mx-auto border-4 border-amber-500 object-cover">
+                        <h3 class="text-2xl font-bold mt-6 text-white">Nome2 'Fina'</h3>
+                        <p class="text-amber-400 font-medium mt-1">Especialista em Fineline & Botânico</p>
+                        <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+                            A precisão e delicadeza dos traços de "Nome2" são ideais para quem busca tatuagens elegantes e detalhadas.
+                        </p>
+                         <div class="mt-6 flex justify-center space-x-4">
+                            <a href="#" target="_blank" class="text-gray-400 hover:text-amber-500"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                            <a href="#" target="_blank" class="text-gray-400 hover:text-amber-500"><i data-lucide="globe" class="w-6 h-6"></i></a>
+                        </div>
+                    </div>
+                     <!-- Artist Card 3 -->
+                    <div class="artist-card rounded-lg overflow-hidden text-center p-8 scroll-reveal" style="transition-delay: 300ms;">
+                        <img src="https://placehold.co/300x300/111111/FFFFFF?text=Artista+3" alt="Foto do Artista 3" class="w-40 h-40 rounded-full mx-auto border-4 border-amber-500 object-cover">
+                        <h3 class="text-2xl font-bold mt-6 text-white">Nome3 'Viking'</h3>
+                        <p class="text-amber-400 font-medium mt-1">Especialista em Old School & Neo Trad</p>
+                        <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+                           "Nome3" traz a força dos clássicos com cores vibrantes e contornos marcantes, criando peças atemporais.
+                        </p>
+                         <div class="mt-6 flex justify-center space-x-4">
+                            <a href="#" target="_blank" class="text-gray-400 hover:text-amber-500"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                            <a href="#" target="_blank" class="text-gray-400 hover:text-amber-500"><i data-lucide="globe" class="w-6 h-6"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16 scroll-reveal">
+                    <h2 class="text-4xl md:text-5xl font-display text-amber-500 tracking-wider">Portfólio</h2>
+                    <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">Inspire-se com alguns dos nossos trabalhos mais recentes.</p>
+                </div>
+                <!-- Filter Buttons -->
+                <div id="filter-container" class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12 scroll-reveal">
+                    <button class="filter-btn btn-secondary py-2 px-5 rounded-full text-sm font-semibold active" data-filter="all">Todos</button>
+                    <button class="filter-btn btn-secondary py-2 px-5 rounded-full text-sm font-semibold" data-filter="realismo">Realismo</button>
+                    <button class="filter-btn btn-secondary py-2 px-5 rounded-full text-sm font-semibold" data-filter="fineline">Fineline</button>
+                    <button class="filter-btn btn-secondary py-2 px-5 rounded-full text-sm font-semibold" data-filter="oldschool">Old School</button>
+                    <button class="filter-btn btn-secondary py-2 px-5 rounded-full text-sm font-semibold" data-filter="colorido">Colorido</button>
+                </div>
+                <!-- Gallery Grid -->
+                <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    <div class="gallery-item scroll-reveal" data-category="realismo"><img src="https://placehold.co/400x500/000/fff?text=Tattoo+Realista" alt="Tattoo Realista" class="rounded-lg cursor-pointer w-full h-full object-cover"></div>
+                    <div class="gallery-item scroll-reveal" data-category="fineline"><img src="https://placehold.co/400x400/000/fff?text=Tattoo+Fineline" alt="Tattoo Fineline" class="rounded-lg cursor-pointer w-full h-full object-cover"></div>
+                    <div class="gallery-item scroll-reveal" data-category="oldschool"><img src="https://placehold.co/400x600/000/fff?text=Tattoo+Old+School" alt="Tattoo Old School" class="rounded-lg cursor-pointer w-full h-full object-cover"></div>
+                    <div class="gallery-item scroll-reveal" data-category="colorido"><img src="https://placehold.co/400x400/000/fff?text=Tattoo+Colorida" alt="Tattoo Colorida" class="rounded-lg cursor-pointer w-full h-full object-cover"></div>
+                    <div class="gallery-item scroll-reveal" data-category="fineline"><img src="https://placehold.co/400x500/000/fff?text=Tattoo+Botânica" alt="Tattoo Botânica" class="rounded-lg cursor-pointer w-full h-full object-cover"></div>
+                    <div class="gallery-item scroll-reveal" data-category="realismo"><img src="https://placehold.co/400x600/000/fff?text=Tattoo+Blackwork" alt="Tattoo Blackwork" class="rounded-lg cursor-pointer w-full h-full object-cover"></div>
+                    <div class="gallery-item scroll-reveal" data-category="colorido"><img src="https://placehold.co/400x500/000/fff?text=Tattoo+Aquarela" alt="Tattoo Aquarela" class="rounded-lg cursor-pointer w-full h-full object-cover"></div>
+                    <div class="gallery-item scroll-reveal" data-category="oldschool"><img src="https://placehold.co/400x400/000/fff?text=Tattoo+Neo+Trad" alt="Tattoo Neo Trad" class="rounded-lg cursor-pointer w-full h-full object-cover"></div>
+                </div>
+                *Futuramente colocaremos fotos aqui, mas por hora, é só uma simulação 😉!
+            </div>
+        </section>
+        
+        <!-- Booking Section -->
+        <section id="agendamento" class="py-20 md:py-32 bg-gray-900/50">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16 scroll-reveal">
+                    <h2 class="text-4xl md:text-5xl font-display text-amber-500 tracking-wider">Agende sua Sessão</h2>
+                    <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">Preencha o formulário abaixo para iniciarmos o processo de criação da sua nova tatuagem.</p>
+                </div>
+                <form id="booking-form" class="max-w-4xl mx-auto bg-[#1f2937] p-8 md:p-12 rounded-lg border border-gray-700 shadow-2xl scroll-reveal">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <!-- Nome -->
+                        <div>
+                            <label for="name" class="block mb-2 font-medium text-gray-300">Nome Completo</label>
+                            <input type="text" id="name" name="name" class="w-full p-3 rounded-lg form-input" required>
+                        </div>
+                        <!-- Email -->
+                        <div>
+                            <label for="email" class="block mb-2 font-medium text-gray-300">E-mail</label>
+                            <input type="email" id="email" name="email" class="w-full p-3 rounded-lg form-input" required>
+                        </div>
+                        <!-- Telefone -->
+                        <div>
+                            <label for="phone" class="block mb-2 font-medium text-gray-300">Telefone / WhatsApp</label>
+                            <input type="tel" id="phone" name="phone" class="w-full p-3 rounded-lg form-input" required>
+                        </div>
+                        <!-- Artista -->
+                        <div>
+                            <label for="artist" class="block mb-2 font-medium text-gray-300">Artista de Preferência</label>
+                            <select id="artist" name="artist" class="w-full p-3 rounded-lg form-input appearance-none">
+                                <option>Sem preferência</option>
+                                <option>Edu Grilo 'Sombra'</option>
+                                <option>Nome2 'Fina'</option>
+                                <option>Nome3 'Viking'</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- Descrição -->
+                    <div class="mt-6">
+                        <label for="description" class="block mb-2 font-medium text-gray-300">Descreva sua ideia</label>
+                        <textarea id="description" name="description" rows="5" class="w-full p-3 rounded-lg form-input" placeholder="Ex: Um leão com uma coroa no antebraço, estilo realismo, com aproximadamente 15cm..."></textarea>
+                    </div>
+                    <!-- Referências -->
+                    <div class="mt-6">
+                        <label for="references" class="block mb-2 font-medium text-gray-300">Imagens de Referência</label>
+                        <input type="file" id="references" name="references" class="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-amber-500 file:text-gray-900 hover:file:bg-amber-400 cursor-pointer">
+                    </div>
+                    <!-- Botão -->
+                    <div class="mt-10 text-center">
+                        <button type="submit" class="btn-primary font-bold py-4 px-12 rounded-lg text-xl uppercase tracking-wider">
+                            Enviar Solicitação
+                        </button>
+                    </div>
+                </form>
+                <div id="form-success-message" class="hidden max-w-4xl mx-auto mt-8 p-6 bg-green-900/50 border border-green-500 text-green-300 rounded-lg text-center">
+                    <h3 class="font-bold text-xl">Obrigado!</h3>
+                    <p>Sua solicitação foi enviada com sucesso. Entraremos em contato em breve para dar continuidade ao seu agendamento.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contato" class="py-20 md:py-32">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-16 scroll-reveal">
+                    <h2 class="text-4xl md:text-5xl font-display text-amber-500 tracking-wider">Visite-nos</h2>
+                    <p class="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">Estamos prontos para te receber. Veja como nos encontrar.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="scroll-reveal">
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <i data-lucide="map-pin" class="w-8 h-8 text-amber-500 mt-1"></i>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Endereço</h3>
+                                    <p class="text-gray-400">Rua Dr Américo de Oliveira 623, centro<br>Itajubá, MG - 37500-671</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-4">
+                                <i data-lucide="clock" class="w-8 h-8 text-amber-500 mt-1"></i>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Horário de Funcionamento</h3>
+                                    <p class="text-gray-400">Segunda a Sexta: 10h - 20h<br>Sábado: 10h - 18h</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start space-x-4">
+                                <i data-lucide="phone" class="w-8 h-8 text-amber-500 mt-1"></i>
+                                <div>
+                                    <h3 class="text-xl font-bold text-white">Contato</h3>
+                                    <p class="text-gray-400">WhatsApp: (35) 99813-2964<br>E-mail: contato@lafamilia.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="h-80 md:h-full rounded-lg overflow-hidden shadow-2xl scroll-reveal">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3688.1396823318073!2d-45.454183925008905!3d-22.423767820786576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cb7ca924f3c873%3A0x734498cb7b5cb7d3!2sLa%20Familia%20Tattoo%20%26%20piercing!5e0!3m2!1spt-BR!2sbr!4v1752492508150!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-12">
+        <div class="container mx-auto px-6 text-center text-gray-400">
+            <a href="#" class="text-3xl font-display tracking-wider text-amber-500">La Familia</a>
+            <div class="flex justify-center space-x-6 my-6">
+                <a href="#" class="hover:text-amber-500 transition-colors"><i data-lucide="instagram" class="w-7 h-7"></i></a>
+                <a href="#" class="hover:text-amber-500 transition-colors"><i data-lucide="facebook" class="w-7 h-7"></i></a>
+                <a href="#" class="hover:text-amber-500 transition-colors"><i data-lucide="twitter" class="w-7 h-7"></i></a>
+            </div>
+            <p>&copy; <span id="current-year"></span> La Familia Tattoo & Piercing. Todos os direitos reservados.</p>
+                <p class="text-sm mt-2">
+                    Desenvolvido com 
+                    <i data-lucide="heart" class="inline w-4 h-4 text-amber-500"></i> 
+                    por <a href="https://instagram.com/weblv.dev" target="_blank" rel="noopener noreferrer" class="font-bold text-[#fff]">@WebLv</a>
+                </p>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 hidden p-4">
+        <img id="lightbox-img" src="" alt="Tattoo em destaque" class="max-w-full max-h-full object-contain">
+        <button id="lightbox-close" class="absolute top-6 right-6 text-white text-4xl">&times;</button>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Gallery Filter
+        const filterContainer = document.getElementById('filter-container');
+        const galleryItems = document.querySelectorAll('#gallery-grid .gallery-item');
+
+        filterContainer.addEventListener('click', (e) => {
+            if (e.target.classList.contains('filter-btn')) {
+                // Update active button style
+                filterContainer.querySelector('.active').classList.remove('active', 'btn-primary');
+                filterContainer.querySelector('.active').classList.add('btn-secondary');
+                e.target.classList.add('active', 'btn-primary');
+                e.target.classList.remove('btn-secondary');
+
+                const filterValue = e.target.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.dataset.category === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            }
+        });
+
+        // Lightbox Functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.classList.remove('hidden');
+                lightboxImg.src = img.src;
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // Booking Form Submission
+        const bookingForm = document.getElementById('booking-form');
+        const successMessage = document.getElementById('form-success-message');
+
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would typically send the form data to a server
+            // For this demo, we'll just show the success message.
+            bookingForm.style.display = 'none';
+            successMessage.classList.remove('hidden');
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+
+</body>
+</html>
